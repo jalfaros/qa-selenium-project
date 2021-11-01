@@ -1,6 +1,6 @@
 const { expect } = require('chai');
 let { afterEach, beforeEach, it } = require('mocha');
-let { Builder, By, Key, until } = require('selenium-webdriver');
+let { Builder, By, until } = require('selenium-webdriver');
 const sleep = require('util').promisify(setTimeout);
 
 async function  loginAutomatic ( driver, user, password ) {
