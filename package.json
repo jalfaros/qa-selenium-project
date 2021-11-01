@@ -4,7 +4,11 @@
   "description": "Selenium Example",
   "main": "index.js",
   "scripts": {
-    "test": "mocha ejemplo_prueba.js --timeout 60000"
+    "test": "mocha ejemplo_prueba.js --timeout 60000",
+    "test_i":"Mocha",
+    "test_l":"Mocha",
+    "test_m":"Mocha",
+    "test_w":"Mocha"
   },
   "author": "Jose Ignacio Alfaro",
   "license": "MIT",
