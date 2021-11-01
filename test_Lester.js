@@ -1,13 +1,14 @@
+//Imports para realizar las pruebas
 const { expect } = require('chai');
 let { afterEach, beforeEach, it } = require('mocha');
 let { Builder, By, Key, until } = require('selenium-webdriver');
+require('chromedriver');
 
 
+//describe que contiene pruebas para el apartado de new topic
+describe('Pruebas automatizadas new topic', () => {
 
-
-describe('Formulario búsqueda en Google', () => {
-
-    const baseURL = 'https://www.google.com';
+    const baseURL = 'http://192.168.0.112';
     let driver;
 
     beforeEach(async () => {
@@ -22,16 +23,13 @@ describe('Formulario búsqueda en Google', () => {
         }, 5000);
     })
 
-
-    it('Ejemplo de búsqueda de un elemento de Google', async () => {
-
-
+    it('CP-31: Funcionalidad en el módulo de new topic', async () => {
         const searchQuery = 'React';
-        await driver.findElement(By.name('q')).sendKeys(searchQuery, Key.RETURN);
+        await driver.findElement(By.id('create-topic')).click();
+        /*
         await driver.wait(until.titleContains('React'));
-        let pageTitle = await driver.getTitle();
-        expect(pageTitle).to.equal('React - Buscar con Google');
+        let pageTitle = await driver.getTitle();*/
+        //expect(pageTitle).to.equal('React - Buscar con Google');
     });
-
 
 })  
