@@ -10,7 +10,7 @@ const sleep = require('util').promisify(setTimeout)
 //describe que contiene pruebas para el apartado de new topic
 describe('Pruebas automatizadas new topic', () => {
 
-    const baseURL = 'http://192.168.0.112';
+    const baseURL = 'http://192.168.0.102';
     let driver;
     
     beforeEach(async () => {
@@ -23,20 +23,13 @@ describe('Pruebas automatizadas new topic', () => {
         await driver.findElement(By.id('login-button')).click();  
     });
 
-    afterEach(async function () {
-        await sleep(2000)
-        await driver.quit()
-    })
-
-    
-
     it('CP-31: Funcionalidad en el módulo de new topic', async () => {
         await sleep(2000)
         await driver.findElement(By.id('create-topic')).click();
         await sleep(3000)  
-        await driver.findElement(By.id('reply-title')).sendKeys("");
+        await driver.findElement(By.id('reply-title')).clear();
         await sleep(4000)  
-        await driver.findElement(By.id('reply-title')).sendKeys("Ejemplo Título NuevoTest11");
+        await driver.findElement(By.id('reply-title')).sendKeys("Ejemplo Título NuevoTest17");
         try {
             selectElem = await driver.findElement(By.name('Filter by: Uncategorized'))
             selectElem.click()
@@ -52,14 +45,14 @@ describe('Pruebas automatizadas new topic', () => {
         await driver.findElement(By.xpath("//span[text()='Create Topic']")).click();
         await driver.wait(until.titleContains('Ejemplo Título NuevoTest'));
         let pageTitle = await driver.getTitle();
-        expect(pageTitle).to.equal('Ejemplo Título NuevoTest11 - Staff - Discourse');
+        expect(pageTitle).to.equal('Ejemplo Título NuevoTest17 - Staff - Discourse');
     });
 
     it('CP-32: Funcionalidad en el módulo de new topic', async () => {
         await sleep(2000)
         await driver.findElement(By.id('create-topic')).click();
         await sleep(3000)  
-        await driver.findElement(By.id('reply-title')).sendKeys("");
+        await driver.findElement(By.id('reply-title')).clear();
         await sleep(3000)
         await driver.findElement(By.className('d-editor-input ember-text-area ember-view')).sendKeys("");
         await sleep(500)
@@ -67,37 +60,39 @@ describe('Pruebas automatizadas new topic', () => {
         expect(await driver.findElement(By.className('popup-tip bad ember-view')).getText()).to.equal('Title is required');
     });
 
+       
     it('CP-33: Funcionalidad en el módulo de new topic', async () => {
         await sleep(2000)
         await driver.findElement(By.id('create-topic')).click();
         await sleep(3000)  
-        await driver.findElement(By.id('reply-title')).sendKeys("");
+        await driver.findElement(By.id('reply-title')).clear();
         await sleep(3000)
         await driver.findElement(By.className('d-editor-input ember-text-area ember-view')).sendKeys("prueba para el apartado post");
         await sleep(500)
         await driver.findElement(By.xpath("//span[text()='Create Topic']")).click();
         expect(await driver.findElement(By.className('popup-tip bad ember-view')).getText()).to.equal('Title is required');
     });
+       
 
     it('CP-34: Funcionalidad en el módulo de new topic', async () => {
         await sleep(2000)
         await driver.findElement(By.id('create-topic')).click();
         await sleep(3000)  
-        await driver.findElement(By.id('reply-title')).sendKeys("");
+        await driver.findElement(By.id('reply-title')).clear();
         await sleep(4000)  
-        await driver.findElement(By.id('reply-title')).sendKeys("Ejemplo Título NuevoTest");
+        await driver.findElement(By.id('reply-title')).sendKeys("Ejemplo Título NuevoTest70");
         await sleep(1000)
         await driver.findElement(By.className('d-editor-input ember-text-area ember-view')).sendKeys("");
         await sleep(500)
         await driver.findElement(By.xpath("//span[text()='Create Topic']")).click();
         expect(await driver.findElement(By.className('popup-tip bad ember-view')).getText()).to.equal('Post can’t be empty');
     });
-
+     
     it('CP-35: Funcionalidad en el módulo de new topic', async () => {
         await sleep(2000)
         await driver.findElement(By.id('create-topic')).click();
         await sleep(3000)  
-        await driver.findElement(By.id('reply-title')).sendKeys("");
+        await driver.findElement(By.id('reply-title')).clear();
         await sleep(4000)  
         await driver.findElement(By.id('reply-title')).sendKeys("Título 1");
         await sleep(3000)
@@ -106,34 +101,35 @@ describe('Pruebas automatizadas new topic', () => {
         await driver.findElement(By.xpath("//span[text()='Create Topic']")).click();
         expect(await driver.findElement(By.className('popup-tip bad ember-view')).getText()).to.equal('Title must be at least 15 characters');
     });
-
+ 
+   
     it('CP-36: Funcionalidad en el módulo de new topic', async () => {
         await sleep(2000)
         await driver.findElement(By.id('create-topic')).click();
         await sleep(2000)  
-        await driver.findElement(By.id('reply-title')).sendKeys("");
+        await driver.findElement(By.id('reply-title')).clear();
         await sleep(3000)  
-        await driver.findElement(By.id('reply-title')).sendKeys("Ejemplo Título NuevoTest40");
+        await driver.findElement(By.id('reply-title')).sendKeys("Ejemplo Título NuevoTest47");
         await driver.findElement(By.className('d-editor-input ember-text-area ember-view')).sendKeys("prueba para el apartado post");
         await sleep(500)
         await driver.findElement(By.xpath("//span[text()='Create Topic']")).click();
         await driver.wait(until.titleContains('Ejemplo Título NuevoTest'));
         let pageTitle = await driver.getTitle();
-        expect(pageTitle).to.equal('Ejemplo Título NuevoTest40 - Staff - Discourse');
+        expect(pageTitle).to.contains('Ejemplo Título NuevoTest47 - Discourse');
     });
 
     it('CP-37: Funcionalidad en el módulo de new topic', async () => {
         await sleep(2000)
         await driver.findElement(By.id('create-topic')).click();
         await sleep(3000)  
-        await driver.findElement(By.id('reply-title')).sendKeys("");
+        await driver.findElement(By.id('reply-title')).clear();
         await sleep(4000)  
-        await driver.findElement(By.id('reply-title')).sendKeys("holaholahola");
+        await driver.findElement(By.id('reply-title')).sendKeys("holaholaholahola");
         await sleep(1000)
         await driver.findElement(By.className('d-editor-input ember-text-area ember-view')).sendKeys("prueba para el apartado post");
         await sleep(500)
         await driver.findElement(By.xpath("//span[text()='Create Topic']")).click();
-        await sleep(5000)
+        await sleep(6000)
         expect(await driver.findElement(By.className('modal-body')).getText()).to.equal('Title seems unclear, most of the words contain the same letters over and over?');
     });
 
@@ -142,23 +138,23 @@ describe('Pruebas automatizadas new topic', () => {
         await sleep(2000)
         await driver.findElement(By.id('create-topic')).click();
         await sleep(3000)  
-        await driver.findElement(By.id('reply-title')).sendKeys("");
+        await driver.findElement(By.id('reply-title')).clear();
         await sleep(4000)  
         await driver.findElement(By.id('reply-title')).sendKeys("Ejemplo Título Nuevo");
+        await driver.findElement(By.className('d-editor-input ember-text-area ember-view')).clear();
         await sleep(1000)
         await driver.findElement(By.className('d-editor-input ember-text-area ember-view')).sendKeys("holat");
         await sleep(500)
         await driver.findElement(By.xpath("//span[text()='Create Topic']")).click();
         await sleep(5000)
-        expect(await driver.findElement(By.className('popup-tip bad ember-view')).getText()).to.equal('Post must be at least 20 characters');
+        expect(await driver.findElement(By.className('popup-tip bad ember-view')).getText()).to.contains('Post must be at least 20 characters');
     });
-    
 
     it('CP-39: Funcionalidad en el módulo de new topic', async () => {
         await sleep(2000)
         await driver.findElement(By.id('create-topic')).click();
         await sleep(3000)  
-        await driver.findElement(By.id('reply-title')).sendKeys("");
+        await driver.findElement(By.id('reply-title')).clear();
         await sleep(4000)  
         await driver.findElement(By.id('reply-title')).sendKeys("1111 2222 3333 4444");
         await sleep(1000)
@@ -167,6 +163,30 @@ describe('Pruebas automatizadas new topic', () => {
         await driver.findElement(By.xpath("//span[text()='Create Topic']")).click();
         await sleep(5000)
         expect(await driver.findElement(By.className('modal-body')).getText()).to.equal('Title seems unclear, most of the words contain the same letters over and over?');
+    });
+
+    
+
+    it('CP-40: Funcionalidad en el módulo de new topic', async () => {
+        textoEjemplo = 'La programación es una de las principales y más importantes áreas dentro de la informática. Una buena definición de programador sería que este, especializado en la computación y que también es conocido como el desarrollador, es el encargado de desarrollar programas para computadora.'
+        await sleep(2000)
+        await driver.findElement(By.id('create-topic')).click();
+        await sleep(3000)  
+        await driver.findElement(By.id('reply-title')).clear();
+        await sleep(4000)  
+        await driver.findElement(By.id('reply-title')).sendKeys(textoEjemplo);
+        await driver.findElement(By.className('d-editor-input ember-text-area ember-view')).clear();
+        await sleep(1000)
+        await driver.findElement(By.className('d-editor-input ember-text-area ember-view')).sendKeys("prueba para el apartado post");
+        await sleep(500)
+        await driver.findElement(By.xpath("//span[text()='Create Topic']")).click();
+        await sleep(5000)
+        expect(await driver.findElement(By.className('popup-tip bad ember-view')).getText()).to.contains("Title can\'t be more than 255 characters");
+    });
+
+    afterEach(async function () {
+        await sleep(2000)
+        await driver.quit()
     });
 
 })  

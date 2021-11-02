@@ -6,7 +6,7 @@
   "scripts": {
     "test": "mocha ejemplo_prueba.js --timeout 60000",
     "test_i": "Mocha",
-    "test_l": "mocha test_Lester.js --timeout 60000",
+    "test_l": "mocha test_Lester.js --timeout 90000",
     "test_m": "Mocha",
     "test_w": "Mocha"
   },
