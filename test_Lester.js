@@ -4,23 +4,24 @@ let { afterEach, beforeEach, it } = require('mocha');
 const { WebDriver } = require('selenium-webdriver');
 let { Builder, By, Key, until } = require('selenium-webdriver');
 let { Select } = require('selenium-webdriver');
-require('chromedriver');
+//require('chromedriver');
 const sleep = require('util').promisify(setTimeout)
 
 //describe que contiene pruebas para el apartado de new topic
 describe('Pruebas automatizadas new topic', () => {
 
-    const baseURL = 'http://192.168.0.102';
+    const baseURL = 'http://192.168.0.104';
     let driver;
     
     beforeEach(async () => {
-        driver = await new Builder().forBrowser('chrome').build(); // Se toma el explorador por defecto (Firefox, Google)
+        driver = await new Builder().forBrowser('firefox').build(); // Se toma el explorador por defecto (Firefox, Google)
         await driver.get(baseURL); //Para abrir la instancia en la web automatizada
         //Automatizacion del login
         await driver.findElement(By.xpath("//span[text()='Log In']")).click();
         await driver.findElement(By.id('login-account-name')).sendKeys("user");
-        await driver.findElement(By.id('login-account-password')).sendKeys("hbiQpTyKytv7");
-        await driver.findElement(By.id('login-button')).click();  
+        await driver.findElement(By.id('login-account-password')).sendKeys("HwwgTr1NwHI1");
+        await driver.findElement(By.id('login-button')).click();
+        await sleep(5000);  
     });
 
     it('CP-31: Funcionalidad en el módulo de new topic', async () => {
@@ -29,7 +30,7 @@ describe('Pruebas automatizadas new topic', () => {
         await sleep(3000)  
         await driver.findElement(By.id('reply-title')).clear();
         await sleep(4000)  
-        await driver.findElement(By.id('reply-title')).sendKeys("Ejemplo Título NuevoTest17");
+        await driver.findElement(By.id('reply-title')).sendKeys("Ejemplo Título NuevoTest18");
         try {
             selectElem = await driver.findElement(By.name('Filter by: Uncategorized'))
             selectElem.click()
@@ -45,7 +46,7 @@ describe('Pruebas automatizadas new topic', () => {
         await driver.findElement(By.xpath("//span[text()='Create Topic']")).click();
         await driver.wait(until.titleContains('Ejemplo Título NuevoTest'));
         let pageTitle = await driver.getTitle();
-        expect(pageTitle).to.equal('Ejemplo Título NuevoTest17 - Staff - Discourse');
+        expect(pageTitle).to.equal('Ejemplo Título NuevoTest18 - Staff - Discourse');
     });
 
     it('CP-32: Funcionalidad en el módulo de new topic', async () => {
@@ -54,7 +55,7 @@ describe('Pruebas automatizadas new topic', () => {
         await sleep(3000)  
         await driver.findElement(By.id('reply-title')).clear();
         await sleep(3000)
-        await driver.findElement(By.className('d-editor-input ember-text-area ember-view')).sendKeys("");
+        await driver.findElement(By.className('d-editor-input ember-text-area ember-view')).clear();
         await sleep(500)
         await driver.findElement(By.xpath("//span[text()='Create Topic']")).click();
         expect(await driver.findElement(By.className('popup-tip bad ember-view')).getText()).to.equal('Title is required');
@@ -80,10 +81,10 @@ describe('Pruebas automatizadas new topic', () => {
         await sleep(3000)  
         await driver.findElement(By.id('reply-title')).clear();
         await sleep(4000)  
-        await driver.findElement(By.id('reply-title')).sendKeys("Ejemplo Título NuevoTest70");
+        await driver.findElement(By.id('reply-title')).sendKeys("Ejemplo Título NuevoTest100");
         await sleep(1000)
-        await driver.findElement(By.className('d-editor-input ember-text-area ember-view')).sendKeys("");
-        await sleep(500)
+        await driver.findElement(By.className('d-editor-input ember-text-area ember-view')).clear();
+        await sleep(1000)
         await driver.findElement(By.xpath("//span[text()='Create Topic']")).click();
         expect(await driver.findElement(By.className('popup-tip bad ember-view')).getText()).to.equal('Post can’t be empty');
     });
@@ -109,13 +110,13 @@ describe('Pruebas automatizadas new topic', () => {
         await sleep(2000)  
         await driver.findElement(By.id('reply-title')).clear();
         await sleep(3000)  
-        await driver.findElement(By.id('reply-title')).sendKeys("Ejemplo Título NuevoTest47");
+        await driver.findElement(By.id('reply-title')).sendKeys("Ejemplo Título NuevoTest101");
         await driver.findElement(By.className('d-editor-input ember-text-area ember-view')).sendKeys("prueba para el apartado post");
         await sleep(500)
         await driver.findElement(By.xpath("//span[text()='Create Topic']")).click();
         await driver.wait(until.titleContains('Ejemplo Título NuevoTest'));
         let pageTitle = await driver.getTitle();
-        expect(pageTitle).to.contains('Ejemplo Título NuevoTest47 - Discourse');
+        expect(pageTitle).to.contains('Ejemplo Título NuevoTest101 - Discourse');
     });
 
     it('CP-37: Funcionalidad en el módulo de new topic', async () => {
