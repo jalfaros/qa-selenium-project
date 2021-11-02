@@ -23,7 +23,7 @@ describe('Pruebas automatizadas Registro de Usuarios', () => {
     })
 //Funcionalidad de modulo de registro
 /*
-it('Ejemplo de usuario sin errores en el registro de usuarios', async () => {
+it('CP-16: Ejemplo de usuario sin errores en el registro de usuarios', async () => {
 
     await driver.findElement(By.className('widget-button btn btn-primary btn-small sign-up-button btn-text')).click();
 
@@ -40,7 +40,7 @@ it('Ejemplo de usuario sin errores en el registro de usuarios', async () => {
     expect(await driver.findElement(By.xpath("//p[text()='If it doesn’t arrive, check your spam folder.']")).getText()).to.equal('If it doesn’t arrive, check your spam folder.');
 });
 
-it('Mensaje de error en al contraseña digitada, debido a que es muy corta', async() =>{
+it('CP-17: Mensaje de error en al contraseña digitada, debido a que es muy corta', async() =>{
     await driver.findElement(By.className('widget-button btn btn-primary btn-small sign-up-button btn-text')).click();
 
     await driver.findElement(By.name('email')).sendKeys('Warner389867821@gmail.com');
@@ -54,7 +54,7 @@ it('Mensaje de error en al contraseña digitada, debido a que es muy corta', asy
     expect(await driver.findElement(By.xpath("//div[text()='Your password is too short.']")).getText()).to.equal('Your password is too short.');
 })*/
 
-it('Mensaje de error en al contraseña digitada, debido a que no se registro ninguna contraseña', async() =>{
+it('CP-18: Mensaje de error en al contraseña digitada, debido a que no se registro ninguna contraseña', async() =>{
     await driver.findElement(By.className('widget-button btn btn-primary btn-small sign-up-button btn-text')).click();
 
     await driver.findElement(By.name('email')).sendKeys('Warner3898123121@gmail.com');
@@ -71,7 +71,7 @@ it('Mensaje de error en al contraseña digitada, debido a que no se registro nin
    
 })
 /*
-it('Mensaje de error en el correo digitado, debido a que no se registro ningun correo', async() =>{
+it('CP-19: Mensaje de error en el correo digitado, debido a que no se registro ningun correo', async() =>{
     await driver.findElement(By.className('widget-button btn btn-primary btn-small sign-up-button btn-text')).click();
 
     await driver.findElement(By.name('email')).sendKeys('');
@@ -88,7 +88,7 @@ it('Mensaje de error en el correo digitado, debido a que no se registro ningun c
   
 })
 
-it('Mensaje de error en el correo digitado y la contraseña, debido a que no se registro ningun correo y la contraseña es inválida', async() =>{
+it('CP-20: Mensaje de error en el correo digitado y la contraseña, debido a que no se registro ningun correo y la contraseña es inválida', async() =>{
     await driver.findElement(By.className('widget-button btn btn-primary btn-small sign-up-button btn-text')).click();
 
     await driver.findElement(By.name('email')).sendKeys('');
@@ -105,7 +105,7 @@ it('Mensaje de error en el correo digitado y la contraseña, debido a que no se 
    
 })
 
-it('Mensaje de error en el correo digitado y contraseña, debido a que no se registro ningun correo y tampoco ninguna contraseña', async() =>{
+it('CP-21: Mensaje de error en el correo digitado y contraseña, debido a que no se registro ningun correo y tampoco ninguna contraseña', async() =>{
     await driver.findElement(By.className('widget-button btn btn-primary btn-small sign-up-button btn-text')).click();
     await driver.findElement(By.name('email')).sendKeys('');
 
@@ -121,7 +121,7 @@ it('Mensaje de error en el correo digitado y contraseña, debido a que no se reg
    
 })
 
-it('Mensaje de error en el correo digitado, debido a que no se registro un formato válido para el correo', async() =>{
+it('CP-22: Mensaje de error en el correo digitado, debido a que no se registro un formato válido para el correo', async() =>{
     await driver.findElement(By.className('widget-button btn btn-primary btn-small sign-up-button btn-text')).click();
 
     await driver.findElement(By.name('email')).sendKeys('warnerhurtado');
@@ -138,7 +138,7 @@ it('Mensaje de error en el correo digitado, debido a que no se registro un forma
   
 })
 
-it('Mensaje de error en el correo digitado y en la contraseña, debido a que no se registro un formato válido para el correo y la extensión de la contraseña es inválida', async() =>{
+it('CP-23: Mensaje de error en el correo digitado y en la contraseña, debido a que no se registro un formato válido para el correo y la extensión de la contraseña es inválida', async() =>{
     await driver.findElement(By.className('widget-button btn btn-primary btn-small sign-up-button btn-text')).click();
 
     await driver.findElement(By.name('email')).sendKeys('warnerhurtado');
@@ -156,7 +156,7 @@ it('Mensaje de error en el correo digitado y en la contraseña, debido a que no 
 })
 
 
-it('Mensaje de error en el correo digitado y en la contraseña, debido a que no se registro un formato válido para el correo y no se digitó la contraseña', async() =>{
+it('CP-24: Mensaje de error en el correo digitado y en la contraseña, debido a que no se registro un formato válido para el correo y no se digitó la contraseña', async() =>{
     await driver.findElement(By.className('widget-button btn btn-primary btn-small sign-up-button btn-text')).click();
     
     await driver.findElement(By.name('email')).sendKeys('warnerhurtado');
@@ -173,7 +173,7 @@ it('Mensaje de error en el correo digitado y en la contraseña, debido a que no 
   
 })
 
-it('Mensaje de error en el correo digitado, debido a que no se registro un formato válido para el correo', async() =>{
+it('CP-25: Mensaje de error en el correo digitado, debido a que no se registro un formato válido para el correo', async() =>{
     await driver.findElement(By.className('widget-button btn btn-primary btn-small sign-up-button btn-text')).click();
 
     await driver.findElement(By.name('email')).sendKeys('correo');
@@ -187,7 +187,7 @@ it('Mensaje de error en el correo digitado, debido a que no se registro un forma
     expect(await driver.findElement(By.xpath("//div[text()='Please enter a valid email address']")).getText()).to.equal('Please enter a valid email address');
 })
 
-it('Mensaje de error en el correo digitado y en la contraseña, debido a que no se registro un formato válido para el correo y no se digitó una contraseña válida', async() =>{
+it('CP-26: Mensaje de error en el correo digitado y en la contraseña, debido a que no se registro un formato válido para el correo y no se digitó una contraseña válida', async() =>{
     await driver.findElement(By.className('widget-button btn btn-primary btn-small sign-up-button btn-text')).click();
 
     await driver.findElement(By.name('email')).sendKeys('correo');
@@ -202,7 +202,7 @@ it('Mensaje de error en el correo digitado y en la contraseña, debido a que no 
     expect(await driver.findElement(By.xpath("//div[text()='Please enter a valid email address']")).getText()).to.equal('Please enter a valid email address');
 })
 
-it('Mensaje de error en el correo digitado y en la contraseña, debido a que no se registro un formato válido para el correo y no se digitó una contraseña', async() =>{
+it('CP-27: Mensaje de error en el correo digitado y en la contraseña, debido a que no se registro un formato válido para el correo y no se digitó una contraseña', async() =>{
     await driver.findElement(By.className('widget-button btn btn-primary btn-small sign-up-button btn-text')).click();
 
     await driver.findElement(By.name('email')).sendKeys('correo');
@@ -217,7 +217,7 @@ it('Mensaje de error en el correo digitado y en la contraseña, debido a que no 
     expect(await driver.findElement(By.xpath("//div[text()='Please enter a valid email address']")).getText()).to.equal('Please enter a valid email address');
 })
 
-it('Mensaje de error en el username, debido a que no se registro un username', async() =>{
+it('CP-28: Mensaje de error en el username, debido a que no se registro un username', async() =>{
     await driver.findElement(By.className('widget-button btn btn-primary btn-small sign-up-button btn-text')).click();
 
     await driver.findElement(By.name('email')).sendKeys('correo12@correo.com');
@@ -234,7 +234,7 @@ it('Mensaje de error en el username, debido a que no se registro un username', a
         expect(await driver.findElement(By.className('alert alert-error')).getText()).to.equal('Please enter a username');
     
 })
-it('Mensaje de error en el username, debido a que registró con caracteres especiales', async() =>{
+it('CP-29: Mensaje de error en el username, debido a que registró con caracteres especiales', async() =>{
     await driver.findElement(By.className('widget-button btn btn-primary btn-small sign-up-button btn-text')).click();
 
     await driver.findElement(By.name('email')).sendKeys('correo35@correo.com');
@@ -250,7 +250,7 @@ it('Mensaje de error en el username, debido a que registró con caracteres espec
 })
 
 
-it('Mensaje de error en el username y contraseña, debido a que registró el username con caracteres especiales y ninguna contraseña', async() =>{
+it('CP-30: Mensaje de error en el username y contraseña, debido a que registró el username con caracteres especiales y ninguna contraseña', async() =>{
     await driver.findElement(By.className('widget-button btn btn-primary btn-small sign-up-button btn-text')).click();
     // await driver.wait(until.titleContains('React'));
     await driver.findElement(By.name('email')).sendKeys('test12@test35.com');
