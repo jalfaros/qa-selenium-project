@@ -32,12 +32,12 @@ describe('Testing login functionality Discourse Main Page CP-01 -> CP-15', () =>
     beforeEach( async () => {
         driver = await new Builder().forBrowser('firefox').build();
         await driver.get( baseURL );
+        await sleep(2000);
     });
 
-    afterEach( () => {
-        setTimeout(() => {
-           driver.quit(); 
-        }, 2000);
+    afterEach( async () => {
+        await sleep(2000);
+        driver.quit();
     }); 
 
 

@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha ./tests/loginTest.js --timeout 60000",
-    "test_l": "Mocha",
-    "test_m": "Mocha",
-    "test_w": "Mocha"
+    "test_l": "mocha ./tests/newTopicTests.js --timeout 90000",
+    "test_m": "mocha ./tests/newCategoryTest.js --timeout 60000",
+    "test_w": "mocha"
   },
   "author": "Jose Ignacio Alfaro",
   "license": "MIT",
