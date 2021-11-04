@@ -7,8 +7,8 @@
     "test": "mocha ejemplo_prueba.js --timeout 60000",
     "test_i": "Mocha",
     "test_l": "mocha test_Lester.js --timeout 60000",
-    "test_m": "mocha testMarco.js --timeout 60000",
-    "test_w": "Mocha" 
+    "test_m": "mocha testRegister.js --timeout 60000",
+    "test_w": "mocha testCreateAccount.js --timeout 60000" 
   },
   "author": "Jose Ignacio Alfaro",
   "license": "MIT",
