@@ -7,7 +7,7 @@ let { Select } = require('selenium-webdriver');
 //require('chromedriver');
 const sleep = require('util').promisify(setTimeout)
 
-//describe que contiene pruebas para el apartado de new topic
+//describe que contiene pruebas para el apartado de new topic 
 describe('Pruebas automatizadas new topic', () => {
 
     const baseURL = 'http://192.168.0.104';
