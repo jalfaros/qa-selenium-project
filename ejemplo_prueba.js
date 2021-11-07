@@ -11,7 +11,7 @@ describe('Formulario búsqueda en Google', () => {
     let driver;
 
     beforeEach(async () => {
-        driver = await new Builder().forBrowser('firefox').build(); // Se toma el explorador por defecto (Firefox, Google)
+        driver = await new Builder().forBrowser('chrome').build(); // Se toma el explorador por defecto (Firefox, Google)
         await driver.get(baseURL); //Para abrir la instancia en la web automatizada
 
     });
